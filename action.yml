@@ -29,7 +29,7 @@ runs:
     - ${{ inputs.image-name }}
     - ${{ inputs.image-tag }}
     - ${{ inputs.extract-git-tag }}
-    - ${{ use-git-branch-as-tag }}
+    - ${{ inputs.use-git-branch-as-tag }}
 branding:
   icon: 'box'
   color: 'blue'
