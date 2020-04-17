@@ -10,7 +10,7 @@ if [ $EXTRACT_TAG_FROM_GIT_REF == "true" ]; then
   DOCKER_IMAGE_TAG=$(echo ${GITHUB_REF} | sed -e "s/refs\/tags\///g")
 fi
 
-if [ USE_BRANCH_NAME_AS_TAG == "true" ]; then
+if [ $USE_BRANCH_NAME_AS_TAG == "true" ]; then
   DOCKER_IMAGE_TAG=$(echo ${GITHUB_REF} | sed -e "s/refs\/heads\///g")
 fi
 
