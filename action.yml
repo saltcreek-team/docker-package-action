@@ -15,6 +15,12 @@ inputs:
     description: 'Extract git-tag from repository'
     default: "false"
     required: false
+  use-git-branch-as-tag:
+    description: 'Use the git-branch-name as docker-tag'
+    default: "false"
+    required: false
+
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -23,6 +29,7 @@ runs:
     - ${{ inputs.image-name }}
     - ${{ inputs.image-tag }}
     - ${{ inputs.extract-git-tag }}
+    - ${{ use-git-branch-as-tag }}
 branding:
   icon: 'box'
   color: 'blue'
