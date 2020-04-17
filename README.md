@@ -54,3 +54,21 @@
         image-name: my-cool-service # Provide only Docker image name
         extract-git-tag: true # Provide flag to extract Docker image tag from git reference
 ```
+
+### Build and publish Docker Image with a tag equal to the git-branch
+
+```yaml
+  build-and-publish-tag:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/') # Running this job only for tags
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build and Publish Tag Docker image
+      uses: saltcreek-team/docker-package-action@1.0.0
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
+        image-name: my-cool-service # Provide only Docker image name
+        use-git-branch-as-tag: true # Provide flag to extract Docker image tag from git-branch-name
+```
