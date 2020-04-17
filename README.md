@@ -60,7 +60,6 @@
 ```yaml
   build-and-publish-tag:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/') # Running this job only for tags
 
     steps:
     - uses: actions/checkout@v2
